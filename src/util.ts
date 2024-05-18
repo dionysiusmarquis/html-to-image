@@ -203,6 +203,8 @@ export async function nodeToDataURL(
   node: HTMLElement,
   width: number,
   height: number,
+  viewBoxWidth: number = width,
+  viewBoxHeight: number = height,
 ): Promise<string> {
   const xmlns = 'http://www.w3.org/2000/svg'
   const svg = document.createElementNS(xmlns, 'svg')
@@ -210,7 +212,7 @@ export async function nodeToDataURL(
 
   svg.setAttribute('width', `${width}`)
   svg.setAttribute('height', `${height}`)
-  svg.setAttribute('viewBox', `0 0 ${width} ${height}`)
+  svg.setAttribute('viewBox', `0 0 ${viewBoxWidth} ${viewBoxHeight}`)
 
   foreignObject.setAttribute('width', '100%')
   foreignObject.setAttribute('height', '100%')
